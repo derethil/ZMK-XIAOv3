@@ -35,9 +35,4 @@ nice_view_spi: &spi0 {
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
 };
-/ {
-    chosen {
-        zephyr,display = &nice_view;
-    };
-};
 
