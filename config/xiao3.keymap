@@ -15,10 +15,10 @@
 
         default_layer {
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3     &kp N4     &kp N5           &kp N6   &kp N7    &kp N8     &kp N9   &kp N0    &kp EQUAL
-&kp TAB    &kp Q   &kp W   &kp E      &kp R      &kp T            &kp Y    &kp U     &kp I      &kp O    &kp P     &kp MINUS
-&kp LSHFT  &kp A   &kp S   &kp D      &kp F      &kp G            &kp H    &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp GRAVE  &kp Z   &kp X   &kp C      &kp V      &kp B            &kp N    &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
+&kp ESC    &kp N1  &kp N2  &kp N3     &kp N4     &kp N5           &kp N6   &kp N7    &kp N8            &kp N9         &kp N0         &kp EQUAL
+&kp TAB    &kp X   &kp L   &kp D      &kp P      &kp V            &kp Z    &kp K     &kp O             &kp U          &kp SEMICOLON  &kp MINUS
+&kp LSHFT  &kp N   &kp R   &kp T      &kp S      &kp G            &kp Y    &kp H     &kp E             &kp I          &kp A          &kp SQT
+&kp GRAVE  &kp Q   &kp J   &kp M      &kp C      &kp W            &kp B    &kp F     &kp SINGLE_QUOTE  &kp SEMICOLON  &kp PERIOD     &kp BSLH
                            &kp LSHFT  &kp SPACE  &kp BACKSPACE    &kp DEL  &kp RET   &kp F3
                            &kp LCTRL  &kp LALT   &kp F1           &kp F2   &kp RALT  &kp RCTRL
             >;
