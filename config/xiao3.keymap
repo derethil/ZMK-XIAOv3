@@ -18,6 +18,13 @@
             bindings = <&kp DOT &kp DOT &kp FSLH>;
             label = "RELATIVEPARENT";
         };
+
+        SendTest: SendTest {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T &kp E &kp S &kp T>;
+            label = "SENDTEST";
+        };
     };
 
     behaviors {
@@ -74,7 +81,7 @@
 
         Utility {
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans      &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans      &trans  &trans  &trans  &trans  &SendTest
 &trans      &trans        &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
 &trans      &trans        &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
 &trans      &trans        &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
