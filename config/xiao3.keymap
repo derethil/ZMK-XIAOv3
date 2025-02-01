@@ -34,6 +34,13 @@
             #binding-cells = <0>;
             bindings = <&kp UNDER>, <&kp SPACE>;
         };
+
+        LayerDance: LayerDance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYERDANCE";
+            #binding-cells = <0>;
+            bindings = <&mo 1>, <&sl 2>;
+        };
     };
 
     keymap {
@@ -46,7 +53,7 @@
 &trans    &kp N   &kp R   &kp T                      &kp S        &kp G           &kp Y          &kp H          &kp E                   &kp I       &kp A      &trans
 &trans    &kp Q   &kp J   &kp M                      &kp C        &kp W           &kp B          &kp F          &kp COMMA               &kp PERIOD  &trans     &trans
                           &mt LEFT_SHIFT UNDERSCORE  &kp SPACE    &kp LEFT_ALT    &kp RIGHT_ALT  &kp RET        &mt RIGHT_SHIFT DOLLAR
-                          &kp LCTRL                  &key_repeat  &kp LEFT_GUI    &mo 1          &kp BACKSPACE  &kp RCTRL
+                          &kp LCTRL                  &key_repeat  &kp LEFT_GUI    &LayerDance    &kp BACKSPACE  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
