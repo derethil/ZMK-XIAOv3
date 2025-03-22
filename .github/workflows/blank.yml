@@ -6,7 +6,6 @@ jobs:
 
   release:
     needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,16 +16,21 @@ jobs:
         with:
           path: artifacts
 
+      - name: Get branch name
+        id: branch
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr '/' '-')" >> $GITHUB_ENV
+
       - name: Set release version
         id: version
-        run: echo "RELEASE_TAG=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
+        run: echo "RELEASE_TAG=${BRANCH_NAME}-$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
+
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          name: ZMK Firmware Build ${{ env.RELEASE_TAG }}
-          body: "Automated build release for commit ${{ github.sha }}"
+          name: ZMK Firmware Build (${{ env.BRANCH_NAME }}) - ${{ env.RELEASE_TAG }}
+          body: "Automated build release for branch **${{ env.BRANCH_NAME }}**\n\nCommit: `${{ github.sha }}`"
           draft: false
           prerelease: false
           files: artifacts/**
