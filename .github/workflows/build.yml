@@ -22,7 +22,7 @@ jobs:
 
       - name: Set release version
         id: version
-        run: echo "RELEASE_TAG=${BRANCH_NAME}-$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
+        run: echo "RELEASE_TAG=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
 
 
       - name: Create GitHub Release
