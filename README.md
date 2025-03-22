@@ -19,7 +19,8 @@ This repository houses the ZMK build firmware and instructions for flashing my e
    2.  Open the keyboard firmware storage in a file manager (it should show up as a USB device)
    3.  Move the settings reset file into the folder
    4.  Unplug and power cycle the board
-   5.  Move the corresponding firmware file into the board
-   6.  Unplug the board
+   5.  Plug in and re-enter bootloader mode
+   6.  Move the corresponding firmware file (left/right) into the board
+   7.  Unplug the board
 11. Similarly, flash the right board
 12. Turn both boards on to pair
