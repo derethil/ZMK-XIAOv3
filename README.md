@@ -8,7 +8,7 @@ This repository houses the ZMK build firmware and instructions for flashing my e
 2. Set up repository access if needed
 3. Make changes
 4. Click save to build firmware and publish a new release
-5. 
+
 ## Flashing
 
 1. Download artifacts from the new [release](https://github.com/derethil/ZMK-XIAOv3/releases)
