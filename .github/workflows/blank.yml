@@ -3,3 +3,32 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+
+  release:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Set release version
+        id: version
+        run: echo "RELEASE_TAG=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ZMK Firmware Build ${{ env.RELEASE_TAG }}
+          body: "Automated build release for commit ${{ github.sha }}"
+          draft: false
+          prerelease: false
+          files: artifacts/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
