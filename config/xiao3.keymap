@@ -59,6 +59,18 @@
             release-after-ms = <1000>;
             quick-release;
         };
+
+        SpaceHoldShift: SpaceHoldShift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPACEHOLDSHIFT";
+            bindings = <&none>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            flavor = "balanced";
+            retro-tap;
+        };
     };
 
     keymap {
@@ -66,12 +78,12 @@
 
         Alpha {
             bindings = <
-&kp TAB   &kp N1          &kp N2          &kp N3                   &kp N4              &kp N5            &kp N6       &kp N7               &kp N8                    &kp N9           &kp N0           &trans
-&EscCaps  &kp X           &kp L           &kp D                    &kp P               &kp V             &kp Z        &kp K                &kp O                     &kp U            &kp MINUS        &trans
-&trans    &mt LEFT_GUI N  &mt LEFT_ALT R  &mt LEFT_SHIFT T         &mt LEFT_CONTROL S  &kp G             &kp Y        &mt RIGHT_CONTROL H  &mt RIGHT_SHIFT E         &mt RIGHT_ALT I  &mt RIGHT_GUI A  &trans
-&trans    &kp Q           &kp J           &kp M                    &kp C               &kp W             &kp B        &kp F                &kp COMMA                 &kp PERIOD       &kp APOS         &trans
-                                          &StickyShift LEFT_SHIFT  &kp SPACE           &LayerDance       &LayerDance  &kp RET              &StickyShift RIGHT_SHIFT
-                                          &trans                   &key_repeat         &kp UNDERSCORE    &kp DOLLAR   &kp BACKSPACE        &trans
+&kp PERCENT       &kp N1  &kp N2  &kp N3        &kp N4               &kp N5         &kp N6         &kp N7      &kp N8         &kp N9      &kp N0     &kp COLON
+&kp TAB           &kp X   &kp L   &kp D         &kp P                &kp V          &kp Z          &kp K       &kp O          &kp U       &kp MINUS  &kp LEFT_PARENTHESIS
+&EscCaps          &kp N   &kp R   &kp T         &kp S                &kp G          &kp Y          &kp H       &kp A          &kp E       &kp I      &kp RIGHT_PARENTHESIS
+&kp LEFT_BRACKET  &kp Q   &kp J   &kp M         &kp C                &kp W          &kp B          &kp F       &kp COMMA      &kp PERIOD  &kp APOS   &kp RIGHT_BRACKET
+                                  &kp LCTRL     &SpaceHoldShift 0 0  &LayerDance    &LayerDance    &kp RET     &kp LEFT_ALT
+                                  &kp LEFT_GUI  &kp UNDERSCORE       &key_repeat    &kp BACKSPACE  &kp DOLLAR  &kp RIGHT_GUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
