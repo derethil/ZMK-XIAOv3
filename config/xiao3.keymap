@@ -48,7 +48,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LAYERDANCE";
             #binding-cells = <0>;
-            bindings = <&sl 1>, <&sl 2>;
+            bindings = <&sl 1>, <&sl 0>;
         };
 
         StickyShift: StickyShift {
@@ -78,7 +78,7 @@
 
         Alpha {
             bindings = <
-&kp PERCENT       &kp N1  &kp N2  &kp N3        &kp N4               &kp N5         &kp N6         &kp N7      &kp N8         &kp N9      &kp N0     &kp COLON
+&kp EQUAL         &kp N1  &kp N2  &kp N3        &kp N4               &kp N5         &kp N6         &kp N7      &kp N8         &kp N9      &kp N0     &kp COLON
 &kp TAB           &kp X   &kp L   &kp D         &kp P                &kp V          &kp Z          &kp K       &kp O          &kp U       &kp MINUS  &kp LEFT_PARENTHESIS
 &EscCaps          &kp N   &kp R   &kp T         &kp S                &kp G          &kp Y          &kp H       &kp A          &kp E       &kp I      &kp RIGHT_PARENTHESIS
 &kp LEFT_BRACKET  &kp Q   &kp J   &kp M         &kp C                &kp W          &kp B          &kp F       &kp COMMA      &kp PERIOD  &kp APOS   &kp RIGHT_BRACKET
@@ -102,27 +102,25 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        Utility {
+        Numpad {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans        &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans  &trans  &trans  &trans  &trans        &trans          &trans        &trans        &trans        &trans        &trans
-&trans  &trans  &trans  &trans  &trans  &trans        &trans          &trans        &trans        &trans        &trans        &trans
-&trans  &trans  &trans  &trans  &trans  &trans        &trans          &trans        &trans        &trans        &trans        &trans
-                        &trans  &trans  &trans        &trans          &trans        &trans
-                        &trans  &trans  &sys_reset    &sys_reset      &trans        &trans
+&bt BT_CLR  &trans  &bt BT_SEL 0  &trans  &trans  &trans    &trans      &trans  &kp KP_DIVIDE  &kp KP_MULTIPLY  &trans     &trans
+&trans      &trans  &trans        &trans  &trans  &trans    &trans      &kp N7  &kp N8         &kp N9           &kp MINUS  &trans
+&trans      &trans  &trans        &trans  &trans  &trans    &trans      &kp N4  &kp N5         &kp N6           &kp PLUS   &trans
+&trans      &trans  &trans        &trans  &trans  &trans    &trans      &kp N1  &kp N2         &kp N3           &trans     &trans
+                                  &trans  &trans  &to 0     &kp PERIOD  &kp N0  &kp ENTER
+                                  &trans  &trans  &trans    &trans      &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         layer_4 {
             bindings = <
-&trans  &trans        &trans        &trans          &trans            &trans    &kp ASTRK   &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans          &trans            &trans    &kp MINUS   &kp N7  &kp N8  &kp N9  &trans  &trans
-&trans  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &trans    &kp EQUAL   &kp N4  &kp N5  &kp N6  &trans  &trans
-&trans  &trans        &trans        &trans          &trans            &trans    &kp SLASH   &kp N1  &kp N2  &kp N3  &trans  &trans
-                                    &trans          &trans            &to 0     &kp PERIOD  &kp N0  &trans
-                                    &trans          &trans            &trans    &trans      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
@@ -131,8 +129,8 @@
         compatible = "zmk,conditional-layers";
 
         CapsOn {
-            if-layers = <3>;
-            then-layer = <3>;
+            if-layers = <2>;
+            then-layer = <2>;
         };
     };
 };
