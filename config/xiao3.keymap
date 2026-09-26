@@ -100,12 +100,12 @@
 
         Alpha {
             bindings = <
-&kp PRINTSCREEN  &kp N1  &kp N2  &kp N3        &kp N4                            &kp N5         &kp N6         &kp N7      &kp N8         &kp N9      &kp N0     &kp HOME
-&kp TAB          &kp X   &kp L   &kp D         &kp P                             &kp V          &kp Z          &kp K       &kp O          &kp U       &kp MINUS  &kp DEL
-&EscCaps         &kp N   &kp R   &kp T         &kp S                             &kp G          &kp Y          &kp H       &kp A          &kp E       &kp I      &kp INSERT
-&kp LEFT_SHIFT   &kp Q   &kp J   &kp M         &kp C                             &kp W          &kp B          &kp F       &kp COMMA      &kp PERIOD  &kp APOS   &kp END
-                                 &kp LCTRL     &SpaceHoldShift LEFT_SHIFT SPACE  &LayerDance    &LayerDance    &kp RET     &kp LEFT_ALT
-                                 &kp LEFT_GUI  &kp UNDERSCORE                    &key_repeat    &kp BACKSPACE  &kp DOLLAR  &kp RIGHT_GUI
+&kp PRINTSCREEN  &kp N1  &kp N2  &kp N3        &kp N4                            &kp N5            &kp N6       &kp N7         &kp N8         &kp N9      &kp N0     &kp HOME
+&kp TAB          &kp X   &kp L   &kp D         &kp P                             &kp V             &kp Z        &kp K          &kp O          &kp U       &kp MINUS  &kp DEL
+&EscCaps         &kp N   &kp R   &kp T         &kp S                             &kp G             &kp Y        &kp H          &kp A          &kp E       &kp I      &kp INSERT
+&kp LEFT_SHIFT   &kp Q   &kp J   &kp M         &kp C                             &kp W             &kp B        &kp F          &kp COMMA      &kp PERIOD  &kp APOS   &kp END
+                                 &kp LCTRL     &SpaceHoldShift LEFT_SHIFT SPACE  &LayerDance       &LayerDance  &kp RET        &kp LEFT_ALT
+                                 &kp LEFT_GUI  &key_repeat                       &kp UNDERSCORE    &kp DOLLAR   &kp BACKSPACE  &kp RIGHT_GUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -137,12 +137,12 @@
 
         Danger {
             bindings = <
-&sys_reset  &trans        &trans        &trans        &trans        &Hold_Bootloader 0 0    &Hold_Bootloader 0 0   &trans  &trans  &trans  &trans  &sys_reset
-&trans      &trans        &trans        &trans        &trans        &trans                  &trans                 &trans  &trans  &trans  &trans  &trans
-&trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans                  &trans                 &trans  &trans  &trans  &trans  &trans
-&trans      &trans        &trans        &trans        &trans        &trans                  &Hold_BT_CLR 0 0  &trans  &trans  &trans  &trans  &Hold_BT_CLR_ALL 0 0
-                                        &trans        &trans        &trans                  &trans                 &trans  &trans
-                                        &trans        &trans        &trans                  &trans                 &trans  &trans
+&sys_reset  &trans        &trans        &trans        &trans        &Hold_Bootloader 0 0    &Hold_Bootloader 0 0  &trans  &trans  &trans  &trans  &sys_reset
+&trans      &trans        &trans        &trans        &trans        &trans                  &trans                &trans  &trans  &trans  &trans  &trans
+&trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans                  &trans                &trans  &trans  &trans  &trans  &trans
+&trans      &trans        &trans        &trans        &trans        &trans                  &Hold_BT_CLR 0 0      &trans  &trans  &trans  &trans  &Hold_BT_CLR_ALL 0 0
+                                        &trans        &trans        &trans                  &trans                &trans  &trans
+                                        &trans        &trans        &trans                  &trans                &trans  &trans
             >;
         };
     };
