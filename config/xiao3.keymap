@@ -18,6 +18,20 @@
             bindings = <&kp DOT &kp DOT &kp FSLH>;
             label = "RELATIVEPARENT";
         };
+
+        bt_clr: bt_clr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR>;
+            label = "BT_CLR";
+        };
+
+        bt_clr_all: bt_clr_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR_ALL>;
+            label = "BT_CLR_ALL";
+        };
     };
 
     behaviors {
@@ -50,10 +64,10 @@
             require-prior-idle-ms = <150>;
         };
 
-        Hold_BT: Hold_BT {
+        Hold_BT_CLR: Hold_BT_CLR {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_BT";
-            bindings = <&bt>, <&none>;
+            label = "HOLD_BT_CLR";
+            bindings = <&bt_clr>, <&none>;
 
             #binding-cells = <2>;
             tapping-term-ms = <1000>;
@@ -64,6 +78,16 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_BOOTLOADER";
             bindings = <&bootloader>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <1000>;
+            flavor = "tap-preferred";
+        };
+
+        Hold_BT_CLR_ALL: Hold_BT_CLR_ALL {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_BT_CLR_ALL";
+            bindings = <&bt_clr_all>, <&none>;
 
             #binding-cells = <2>;
             tapping-term-ms = <1000>;
@@ -113,12 +137,12 @@
 
         Danger {
             bindings = <
-&sys_reset  &trans        &trans        &trans        &trans        &Hold_Bootloader 0 0    &Hold_Bootloader 0 0  &trans  &trans  &trans  &trans  &sys_reset
-&trans      &trans        &trans        &trans        &trans        &trans                  &trans                &trans  &trans  &trans  &trans  &trans
-&trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans                  &trans                &trans  &trans  &trans  &trans  &trans
-&trans      &trans        &trans        &trans        &trans        &trans                  &Hold_BT BT_CLR 0     &trans  &trans  &trans  &trans  &Hold_BT BT_CLR_ALL 0
-                                        &trans        &trans        &trans                  &trans                &trans  &trans
-                                        &trans        &trans        &trans                  &trans                &trans  &trans
+&sys_reset  &trans        &trans        &trans        &trans        &Hold_Bootloader 0 0    &Hold_Bootloader 0 0   &trans  &trans  &trans  &trans  &sys_reset
+&trans      &trans        &trans        &trans        &trans        &trans                  &trans                 &trans  &trans  &trans  &trans  &trans
+&trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans                  &trans                 &trans  &trans  &trans  &trans  &trans
+&trans      &trans        &trans        &trans        &trans        &trans                  &Hold_BT_CLR 0 0  &trans  &trans  &trans  &trans  &Hold_BT_CLR_ALL 0 0
+                                        &trans        &trans        &trans                  &trans                 &trans  &trans
+                                        &trans        &trans        &trans                  &trans                 &trans  &trans
             >;
         };
     };
