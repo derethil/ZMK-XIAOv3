@@ -48,12 +48,12 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LAYERDANCE";
             #binding-cells = <0>;
-            bindings = <&sl 1>, <&tog 2>, <&sl 3>;
+            bindings = <&sl 2>, <&tog 3>, <&sl 4>;
         };
 
-        SpaceHoldShift: SpaceHoldShift {
+        HoldKp: HoldKp {
             compatible = "zmk,behavior-hold-tap";
-            label = "SPACEHOLDSHIFT";
+            label = "HOLDKP";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -100,15 +100,26 @@
 
         Alpha {
             bindings = <
-&kp PRINTSCREEN  &kp N1  &kp N2  &kp N3        &kp N4                            &kp N5            &kp N6       &kp N7         &kp N8         &kp N9      &kp N0     &kp HOME
-&kp TAB          &kp X   &kp L   &kp D         &kp P                             &kp V             &kp Z        &kp K          &kp O          &kp U       &kp MINUS  &kp DEL
-&EscCaps         &kp N   &kp R   &kp T         &kp S                             &kp G             &kp Y        &kp H          &kp A          &kp E       &kp I      &kp INSERT
-&kp LEFT_SHIFT   &kp Q   &kp J   &kp M         &kp C                             &kp W             &kp B        &kp F          &kp COMMA      &kp PERIOD  &kp APOS   &kp END
-                                 &kp LCTRL     &SpaceHoldShift LEFT_SHIFT SPACE  &LayerDance       &LayerDance  &kp RET        &kp LEFT_ALT
-                                 &kp LEFT_GUI  &key_repeat                       &kp UNDERSCORE    &kp DOLLAR   &kp BACKSPACE  &kp RIGHT_GUI
+&kp PRINTSCREEN  &kp N1  &kp N2  &kp N3        &kp N4                    &kp N5            &kp N6       &kp N7                     &kp N8         &kp N9      &kp N0     &kp HOME
+&kp TAB          &kp X   &kp L   &kp D         &kp P                     &kp V             &kp Z        &kp K                      &kp O          &kp U       &kp MINUS  &kp DEL
+&EscCaps         &kp N   &kp R   &kp T         &kp S                     &kp G             &kp Y        &kp H                      &kp A          &kp E       &kp I      &kp INSERT
+&kp LEFT_SHIFT   &kp Q   &kp J   &kp M         &kp C                     &kp W             &kp B        &kp F                      &kp COMMA      &kp PERIOD  &kp APOS   &kp END
+                                 &kp LCTRL     &HoldKp LEFT_SHIFT SPACE  &LayerDance       &LayerDance  &HoldKp RIGHT_SHIFT ENTER  &mo 1
+                                 &kp LEFT_GUI  &key_repeat               &kp UNDERSCORE    &kp DOLLAR   &kp BACKSPACE              &kp RIGHT_ALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        Nav {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans        &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans        &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans        &trans     &trans
+                        &trans  &trans  &trans    &trans  &trans    &trans
+                        &trans  &trans  &trans    &trans  &trans    &trans
+            >;
         };
 
         Symbols {
