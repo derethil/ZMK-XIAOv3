@@ -41,7 +41,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LAYERDANCE";
             #binding-cells = <0>;
-            bindings = <&sl 1>, <&to 2>, <&sl 3>;
+            bindings = <&sl 1>, <&tog 2>, <&sl 3>;
         };
 
         SpaceHoldShift: SpaceHoldShift {
@@ -55,6 +55,26 @@
             flavor = "balanced";
             retro-tap;
         };
+
+        Hold_BT: Hold_BT {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_BT";
+            bindings = <&bt>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <1000>;
+            flavor = "tap-preferred";
+        };
+
+        Hold_Bootloader: Hold_Bootloader {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_BOOTLOADER";
+            bindings = <&bootloader>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <1000>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -62,12 +82,12 @@
 
         Alpha {
             bindings = <
-&kp EQUAL         &kp N1  &kp N2  &kp N3        &kp N4                            &kp N5         &kp N6         &kp N7      &kp N8         &kp N9      &kp N0     &kp COLON
-&kp TAB           &kp X   &kp L   &kp D         &kp P                             &kp V          &kp Z          &kp K       &kp O          &kp U       &kp MINUS  &kp LEFT_PARENTHESIS
-&EscCaps          &kp N   &kp R   &kp T         &kp S                             &kp G          &kp Y          &kp H       &kp A          &kp E       &kp I      &kp RIGHT_PARENTHESIS
-&kp LEFT_BRACKET  &kp Q   &kp J   &kp M         &kp C                             &kp W          &kp B          &kp F       &kp COMMA      &kp PERIOD  &kp APOS   &kp RIGHT_BRACKET
-                                  &kp LCTRL     &SpaceHoldShift LEFT_SHIFT SPACE  &LayerDance    &LayerDance    &kp RET     &kp LEFT_ALT
-                                  &kp LEFT_GUI  &kp UNDERSCORE                    &key_repeat    &kp BACKSPACE  &kp DOLLAR  &kp RIGHT_GUI
+&kp PRINTSCREEN  &kp N1  &kp N2  &kp N3        &kp N4                            &kp N5         &kp N6         &kp N7      &kp N8         &kp N9      &kp N0     &kp HOME
+&kp TAB          &kp X   &kp L   &kp D         &kp P                             &kp V          &kp Z          &kp K       &kp O          &kp U       &kp MINUS  &kp DEL
+&EscCaps         &kp N   &kp R   &kp T         &kp S                             &kp G          &kp Y          &kp H       &kp A          &kp E       &kp I      &kp INSERT
+&kp LEFT_SHIFT   &kp Q   &kp J   &kp M         &kp C                             &kp W          &kp B          &kp F       &kp COMMA      &kp PERIOD  &kp APOS   &kp END
+                                 &kp LCTRL     &SpaceHoldShift LEFT_SHIFT SPACE  &LayerDance    &LayerDance    &kp RET     &kp LEFT_ALT
+                                 &kp LEFT_GUI  &kp UNDERSCORE                    &key_repeat    &kp BACKSPACE  &kp DOLLAR  &kp RIGHT_GUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -88,23 +108,23 @@
 
         Numpad {
             bindings = <
-&bt BT_CLR  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 4    &trans      &trans  &kp KP_DIVIDE  &kp KP_MULTIPLY  &trans     &trans
-&trans      &trans  &trans        &trans        &trans        &trans          &trans      &kp N7  &kp N8         &kp N9           &kp MINUS  &trans
-&trans      &trans  &trans        &trans        &trans        &trans          &trans      &kp N4  &kp N5         &kp N6           &kp PLUS   &trans
-&trans      &trans  &trans        &trans        &trans        &trans          &trans      &kp N1  &kp N2         &kp N3           &trans     &trans
-                                  &trans        &trans        &to 0           &kp PERIOD  &kp N0  &kp ENTER
-                                  &trans        &trans        &trans          &trans      &trans  &trans
+&trans  &trans  &trans    &trans        &trans     &trans    &trans      &trans  &kp SLASH  &kp ASTERISK  &trans     &trans
+&trans  &trans  &trans    &kp UP_ARROW  &trans     &trans    &trans      &kp N7  &kp N8     &kp N9        &kp MINUS  &trans
+&trans  &trans  &kp LEFT  &kp DOWN      &kp RIGHT  &trans    &kp COMMA   &kp N4  &kp N5     &kp N6        &kp PLUS   &trans
+&trans  &trans  &trans    &trans        &trans     &trans    &trans      &kp N1  &kp N2     &kp N3        &trans     &trans
+                          &trans        &trans     &to 0     &kp PERIOD  &kp N0  &kp ENTER
+                          &trans        &trans     &trans    &trans      &trans  &trans
             >;
         };
 
         Danger {
             bindings = <
-&sys_reset  &trans  &trans  &trans  &trans  &bootloader    &bootloader  &trans  &trans  &trans  &trans  &sys_reset
-&trans      &trans  &trans  &trans  &trans  &trans         &trans       &trans  &trans  &trans  &trans  &trans
-&trans      &trans  &trans  &trans  &trans  &trans         &trans       &trans  &trans  &trans  &trans  &trans
-&trans      &trans  &trans  &trans  &trans  &trans         &trans       &trans  &trans  &trans  &trans  &trans
-                            &trans  &trans  &to 0          &to 0        &trans  &trans
-                            &trans  &trans  &trans         &trans       &trans  &trans
+&sys_reset  &trans        &trans        &trans        &trans        &Hold_Bootloader 0 0    &Hold_Bootloader 0 0  &trans  &trans  &trans  &trans  &sys_reset
+&trans      &trans        &trans        &trans        &trans        &trans                  &trans                &trans  &trans  &trans  &trans  &trans
+&trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans                  &trans                &trans  &trans  &trans  &trans  &trans
+&trans      &trans        &trans        &trans        &trans        &trans                  &Hold_BT BT_CLR 0     &trans  &trans  &trans  &trans  &Hold_BT BT_CLR_ALL 0
+                                        &trans        &trans        &trans                  &trans                &trans  &trans
+                                        &trans        &trans        &trans                  &trans                &trans  &trans
             >;
         };
     };
@@ -112,9 +132,9 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        CapsOn {
-            if-layers = <2>;
-            then-layer = <2>;
+        ActivateDanger {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
